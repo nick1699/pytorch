@@ -124,7 +124,8 @@ def test():
     img_eval_tensor.unsqueeze_(0)
     data = Variable(img_eval_tensor.cuda())
     out = model(data)
-    print(out.data.max(1, keepdim=True).indices[0])
+    out_item = out.data.max(1, keepdim=True)[1].item()
+    print('Cat' if 0 == out_item else 'Dog')
     img.show()
     x = input("")
 
