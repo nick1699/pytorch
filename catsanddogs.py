@@ -131,14 +131,13 @@ def test():
 
 
 if __name__ == '__main__':
-    if os.path.isfile('catsanddogs.pt'):
-        model = torch.load('catsanddogs.pt')
+    if os.path.isfile('models/catsanddogs.pt'):
+        model = torch.load('models/catsanddogs.pt')
 
     train_data = create_train_data()
     for epoch in range(1, 30):
         train(epoch, train_data)
-
-    torch.save(model, 'catsanddogs.pt')
+    torch.save(model, 'models/catsanddogs.pt')
 
     for i in range(1, 30):
         test()
